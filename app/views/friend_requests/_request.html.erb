@@ -8,14 +8,17 @@
     </div>
   </div>
   <div class="p-2 px-3">
-    <%= button_to "Accept",
-              user_friendships_path(current_user.id),
-              params: { friendship: { user_id: request.sender.id,
-                                      friend_id: current_user.id
-                                    }
-                      },
+      <%= button_to 'Accept',
+        user_friendships_path(current_user.id),
+        params: { friendship: { user_id: request.sender_id,
+                                friend_id: current_user.id
+                                },
+                  friend_request: { sender_id: request.sender_id, 
+                                    receiver_id: current_user.id
+                                  }
+                },
               class: "btn btn-success me-3"
-    %>
+        %>
     <%= button_to "Decline",
         user_friend_request_path(current_user.id, request.sender.id),
         method: :delete,
