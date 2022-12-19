@@ -1,0 +1,9 @@
+<%= form_for :user, url: edit_user_registration_path(current_user), action: :update, method: :post do |form| %>
+  <div class="container w-25 mt-4">
+      <h2 class="mb-3">Personal Info</h2>
+      <%= form.label :email, class: "form-label" %>
+      <%= form.email_field :email, class: "form-control mb-3" %>
+      <%= form.submit "Save", class: "btn btn-primary" %>
+      <%= link_to "Cancel", :back, class: "btn btn-outline-primary ms-2" %>
+  </div>
+<% end %>

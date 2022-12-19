@@ -10,11 +10,22 @@
                 </div>
             </div>
             <div class="feed-icon px-2">
-              <%= button_to 'Add Friend', user_friend_requests_path(@user.id), 
+              <% if current_user == @user %>
+                <%= link_to 'Edit Bio', edit_user_registration_path(current_user), class: 'btn btn-primary w-100'%>
+              <% elsif current_user.friends.include?(@user) %>
+                <%= button_to "Remove Friend",
+                          user_friendship_path(@user.id, current_user.id),
+                          method: :delete,
+                          params: { friendship: { user_id: current_user.id, friend_id: @user.id }},
+                          class: "btn btn-danger w-100" 
+                %>
+              <% else %>
+                <%= button_to 'Add Friend', user_friend_requests_path(@user.id), 
                                           params: { friend_request: {sender_id: current_user.id ,
                                           receiver_id: @user.id}}, 
                                           class: "btn btn-primary w-100" 
-              %>
+                %>
+              <% end %>
               <i class="fa fa-ellipsis-v text-black-50"></i>
             </div>
         </div>
