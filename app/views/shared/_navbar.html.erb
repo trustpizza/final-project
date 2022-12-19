@@ -4,10 +4,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#" style="font-weight:900">FarCeBook</a>
+      <%= link_to 'FarCeBook', root_url, class: 'navbar-brand', :html =>{:style => "font-weight:900"}%>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+          <%= link_to 'Home', root_url, class: 'nav-link'%>
         </li>
         <li class="nav-item">
            <%= link_to 'Profile', user_path(current_user), :class => "nav-link", user: current_user %> 
