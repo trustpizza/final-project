@@ -18,10 +18,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to root_path
+      format.turbo_stream
       flash[:notice]='Post was created'
     else
-      render :new, status: :unprocessable_entity
+     format.html { render :new, status: :unprocessable_entity}
     end
   end
 
