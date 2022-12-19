@@ -32,7 +32,7 @@ class FriendshipsController < ApplicationController
 
     return unless @friendship.destroy
 
-    redirect_to request.refferer  
+    redirect_to request.referrer  
   end
   private
 
