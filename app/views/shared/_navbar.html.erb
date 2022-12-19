@@ -13,7 +13,7 @@
            <%= link_to 'Profile', user_path(current_user), :class => "nav-link", user: current_user %> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <%= button_to "Logout", destroy_user_session_path, :method => :delete, data: { turbo: false }, class: "container-fluid btn"  %>
         </li>
       </ul>
     </div>
