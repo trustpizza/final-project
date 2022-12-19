@@ -18,7 +18,7 @@
           <%= link_to 'Find Friends', users_path, class: 'nav-link'%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">New Post</a>
+          <%= link_to 'New Post', new_user_post_path(current_user), class: 'nav-link'%>
         </li>
 
       </ul>
