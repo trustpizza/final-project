@@ -17,11 +17,13 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
 
-    if @post.save
-      format.turbo_stream
-      flash[:notice]='Post was created'
-    else
-     format.html { render :new, status: :unprocessable_entity}
+    respond_to do |format|
+      if @post.save
+        format.turbo_stream
+        flash[:notice]='Post was created'
+      else
+       format.html { render :new, status: :unprocessable_entity}
+      end
     end
   end
 
