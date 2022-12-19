@@ -1,25 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light px-5 bg-primary">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">Notifications</a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <% unless current_user.received_friend_requests.count.zero? %>
-          <%= link_to 'Friend Requests', user_friend_requests_path(current_user), class: 'nav-link'%>
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Friends-List</a>
-      </li>
-       <li class="nav-item">
-        <%= link_to 'Find Friends', users_path, class: 'nav-link'%>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">New Post</a>
-      </li>
+<% if user_signed_in? %>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light px-5 bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Notifications</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <% unless current_user.received_friend_requests.count.zero? %>
+            <%= link_to 'Friend Requests', user_friend_requests_path(current_user), class: 'nav-link'%>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Friends-List</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Find Friends', users_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">New Post</a>
+        </li>
 
-    </ul>
-  </div>
-</nav>
+      </ul>
+    </div>
+  </nav>
+<% else %>
+<% end %>
