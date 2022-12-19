@@ -13,6 +13,8 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @like = @post.likes.find_by(like_params)
     @like.destroy
+
+    redirect_to request.referrer
   end
 
   private
