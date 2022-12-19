@@ -12,4 +12,12 @@ class Post < ApplicationRecord
   def time_format
     created_at.strftime("%b %-d, %Y")
   end
+
+  def liked_by?(user)
+    likes.any? { |like| like.user == user }
+  end
+
+  def find_like(user)
+    likes.find_by(user: user)
+  end
 end
