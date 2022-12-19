@@ -2,8 +2,8 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
             <div class="feed p-2">
-              <% current_user.received_friend_requests.each do |req| %>
-                <%= render 'request', req: req %>
+              <% current_user.received_friend_requests.each do |request| %>
+                <%= render 'request', request: request %>
               <% end %>
             </div>
         </div>
