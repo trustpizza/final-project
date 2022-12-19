@@ -2,7 +2,9 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
             <div class="feed p-2">
-                
+                <% @posts.each do |post| %>
+                    <%= render 'text_post', post: post %>
+                <% end %>
             </div>
         </div>
     </div>
