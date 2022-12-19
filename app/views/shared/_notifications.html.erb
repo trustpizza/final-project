@@ -12,7 +12,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Friends-List</a>
+          <%= link_to 'Friends-List', user_friendships_path(current_user), class: 'nav-link'%>
         </li>
         <li class="nav-item">
           <%= link_to 'Find Friends', users_path, class: 'nav-link'%>
