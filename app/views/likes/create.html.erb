@@ -1,5 +1,5 @@
-<%= turbo_frame_tag "post_#{post.id}" do %>
-  <%= button_to post_like_path(@like, post, like: { user_id: current_user.id, post_id: post.id }),
+<%= turbo_frame_tag "post_#{@post.id}" do %>
+  <%= button_to post_like_path(@like, @post, like: { user_id: current_user.id, post_id: @post.id }),
       method: :delete,
       class: "btn btn-primary btn-sm d-flex align-items-center" do
   %>
