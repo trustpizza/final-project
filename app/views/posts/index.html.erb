@@ -1,11 +1,11 @@
 <div class="container mt-4 mb-5">
     <div class="d-flex justify-content-center row">
-        <div class="col-md-8">
+        <%= turbo_frame_tag id="new_post", src: new_user_post_path(current_user)%>      
+        <!--<div class="col-md-8">
             <div class="feed p-2">
-                <% @posts.each do |post| %>
-                    <%= render 'post', post: post %>
-                <% end %>
-            </div>
-        </div>
+                <%= render @posts %>
+            </div> 
+        </div> -->
+        
     </div>
 </div>
