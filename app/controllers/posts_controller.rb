@@ -17,13 +17,13 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
 
-  
-    if @post.save
-      redirect_to root_path
-      flash[:notice]='Post was created'
-    else
-      render :new, status: :unprocessable_entity
-    end
+    
+      if @post.save
+        redirect_to root_path
+        flash[:notice]='Post was created'
+      else
+        render :new, status: :unprocessable_entity
+      end
   end
 
   def destroy
