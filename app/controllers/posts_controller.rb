@@ -13,18 +13,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-
   def create
     @post = current_user.posts.build(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.turbo_stream
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @post.save
+      redirect_to root_path
+      flash[:notice]='Post was created'
+    else
+      render :new, status: :unprocessable_entity
     end
-    redirect_to request.referrer
   end
 
   def destroy
