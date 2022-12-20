@@ -20,9 +20,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.turbo_stream
-        flash[:notice]='Post was created'
       else
-       format.html { render :new, status: :unprocessable_entity}
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
