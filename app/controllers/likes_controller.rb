@@ -8,6 +8,14 @@ class LikesController < ApplicationController
     @like = @post.likes.create(like_params)
 
     respond_to  do |format|
+      if @like
+        format.turbo_stream
+        format.html { redirect_to @like }
+        #debugger
+      else
+        redirect_to root_path
+      end
+  
     end
   end
 
@@ -19,8 +27,9 @@ class LikesController < ApplicationController
     respond_to do |format|
       if @like.destroy
         format.turbo_stream
+        format.html {redirect_to @like }
       else
-        redirect_to root_url  
+        redirect_to root_path
       end
     end
   end

@@ -1,3 +1,3 @@
-<%= turbo_frame_tag "like" do %>
+<%= turbo_frame_tag "like_#{@post.id}" do %>
   <%= button_to 'Like', post_likes_path(@post, like: { user_id: current_user.id, post_id: @post.id })%>
 <% end %>
