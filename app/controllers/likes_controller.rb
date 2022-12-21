@@ -10,7 +10,7 @@ class LikesController < ApplicationController
     respond_to  do |format|
       if @like
         format.turbo_stream
-        format.html { redirect_to @like }
+        #format.html
         #debugger
       else
         redirect_to root_path
@@ -27,7 +27,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       if @like.destroy
         format.turbo_stream
-        format.html {redirect_to @like }
+        #format.html
       else
         redirect_to root_path
       end
